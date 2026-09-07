@@ -1,0 +1,9 @@
+# Copy this file to db.properties in the same folder and fill in your own
+# PostgreSQL credentials. db.properties is git-ignored, so it never reaches
+# the repository.
+#
+#     cp src/main/resources/db.properties.example src/main/resources/db.properties
+
+db.url=jdbc:postgresql://localhost:5432/college
+db.user=postgres
+db.password=change_me
