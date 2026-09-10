@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class CourseDAO {
 
-    // Insere um curso e retorna a chave primária do memso (no caso do banco não retornar a chave, o método retorna -1).
+    // Insere um curso e retorna a chave primária do mesmo (no caso do banco não retornar a chave, o método retorna -1).
     public int insert(Course course) throws SQLException {
         String sql = "INSERT INTO courses (name, duration_semesters) VALUES (?, ?)";
 
