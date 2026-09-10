@@ -24,7 +24,14 @@ public class CourseDAO {
 
             statement.setString(1, course.name());
             statement.setInt(2, course.durationSemesters());
-            statement.executeUpdate();
+            try {
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                if ("23505".equals(e.getSQLState()) && e.getMessage() != null && e.getMessage().contains("uq_courses_name")) {
+                    throw new DuplicateCourseNameException(course.name(), e);
+                }
+                throw e;
+            }
 
             try (ResultSet keys = statement.getGeneratedKeys()) {
                 return keys.next() ? keys.getInt(1) : -1;

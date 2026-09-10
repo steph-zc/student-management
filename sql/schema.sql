@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS courses;
 CREATE TABLE courses (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
+	CONSTRAINT uq_courses_name UNIQUE (name),
 	duration_semesters INTEGER NOT NULL CHECK (duration_semesters > 0)
 );
 
